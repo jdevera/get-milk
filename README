@@ -1,0 +1,79 @@
+--------------------------------------------------------------------------------
+									GET MILK
+--------------------------------------------------------------------------------
+
+
+Description
+===========
+
+Get Milk is a Bash script that exports all pending tasks from a user's account
+in Remember The Milk [1] (RTM from now on) into a text file.
+
+The format of this text file is such that makes it ready to be used with Gina 
+Trapani et al.'s task management software todo.txt-cli [2].
+
+
+
+Requirements
+============
+
+Get Milk relies on several other tools that must be available in the system:
+
+ * sed
+ * awk
+ * curl
+ * md5sum
+ * xsltproc (Although a different XSLT processor can be used, it would require
+   some changes in the script; those changes are commented in the code)
+ * A web browser
+
+Get Milk also needs a valid RTM's API key, and the corresponding shared secret.
+Both can be obtained easily from RTM [3]. Users must edit the script getmilk.sh
+to replace the dummy values there with the real ones.
+
+
+
+Conversion information
+======================
+
+RTM's task lists are exported as todo.txt-cli's projects (+ListName).
+Spaces in task lists are replaced by underscores (_).
+RTM's tags are exported as todo.txt-cli's contexts (@tag).
+Locations, notes, due dates, etc. are discarded.
+
+
+
+Assumptions
+===========
+
+The use of dates in the todo.txt file is assumed. If this is not the case, the
+output file will need some additional processing. This could also be dealt with
+within getmilk.sh in the future.
+
+A simple RTM setup is also assumed. getmilk.sh has not been tested with any RTM 
+account that included periodical tasks.
+
+
+
+Development
+===========
+
+You can find this script's development site in github [4].
+
+
+
+References
+==========
+[1] http://www.rememberthemilk.com/
+[2] http://todotxt.org/
+[3] http://www.rememberthemilk.com/services/api/requestkey.rtm
+[4] http://github.com/jdevera/get-milk/
+
+
+
+The Author
+======
+
+Author:   Jacobo de Vera
+URL:      http://blog.jacobodevera.com/
+Twitter:  @jovianjake
