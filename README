@@ -14,6 +14,15 @@ Trapani et al.'s task management software todo.txt-cli [2].
 
 
 
+Usage
+=====
+
+Get Milk needs an output file name as a command line parameter, for instance:
+
+$ ./getmilk.sh todo.txt
+
+
+
 Requirements
 ============
 
